@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b2942">
+  <meta name="description" content="Civic Pulse helps residents find civic information, report local issues and track demo complaints.">
+  <title>Civic Pulse | Your voice, your city</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="#home" aria-label="Civic Pulse home"><span class="brand-mark" aria-hidden="true">⌂</span><span>Civic<span class="brand-light">Pulse</span><small>YOUR VOICE, YOUR CITY</small></span></a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Open navigation">☰</button>
+      <nav id="mainNav" class="main-nav" aria-label="Main navigation">
+        <a href="#updates">Public info</a><a href="#schemes">Schemes</a><a href="#dashboard">Dashboard</a>
+        <a class="nav-report" href="#report">Report an issue <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="eyebrow"><span class="pulse-dot"></span> A clearer connection to your city</div>
+        <h1>Small changes.<br><span>Stronger communities.</span></h1>
+        <p class="hero-copy">Find useful civic information, report neighborhood issues and follow your report from one simple place.</p>
+        <div class="hero-actions"><a class="button button-green" href="#report">Report a local issue <span aria-hidden="true">→</span></a><a class="text-link" href="#updates">Explore public information <span aria-hidden="true">↓</span></a></div>
+        <div class="hero-note"><span class="shield" aria-hidden="true">✓</span> A community demo. Reports are saved in this project database.</div>
+      </div>
+      <div class="hero-visual" aria-label="Illustration of a connected neighborhood">
+        <div class="visual-sun"></div><div class="visual-cloud cloud-one"></div><div class="visual-cloud cloud-two"></div>
+        <div class="city-label"><span class="city-label-icon">⌖</span><span><b>Your neighborhood</b><small>Better, together</small></span></div>
+        <div class="building building-back"><i></i><i></i><i></i><i></i></div>
+        <div class="building building-main"><i></i><i></i><i></i><i></i><div class="door"></div></div>
+        <div class="building building-side"><i></i><i></i><i></i></div>
+        <div class="tree tree-left"><b></b><i></i></div><div class="tree tree-right"><b></b><i></i></div>
+        <div class="road"><span></span><span></span><span></span></div>
+        <div class="floating-card"><span class="float-icon">✳</span><span><b>Every voice counts</b><small>Local action starts here</small></span></div>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Platform principles"><div><span>01</span> Clear public information</div><div><span>02</span> Simple issue reporting</div><div><span>03</span> Transparent demo tracking</div></section>
+
+    <section class="section dashboard-section" id="dashboard">
+      <div class="section-heading"><div><div class="eyebrow">Civic at a glance</div><h2>Your community dashboard</h2><p>See how reports are moving. Counts come from the Civic Pulse project database.</p><p class="dashboard-error" id="dashboardError" role="status" aria-live="polite" hidden></p></div><span class="demo-tag"><i></i> DEMO DATA</span></div>
+      <div class="stats-grid">
+        <article class="stat-card stat-total"><div class="stat-top"><span>Total reports</span><span class="stat-icon">▤</span></div><strong id="totalCount">0</strong><small>Saved in the project database</small><div class="stat-line"><i style="width:78%"></i></div></article>
+        <article class="stat-card"><div class="stat-top"><span>Pending</span><span class="stat-icon amber">◷</span></div><strong id="pendingCount">0</strong><small>Awaiting an update</small><div class="stat-line amber-line"><i style="width:48%"></i></div></article>
+        <article class="stat-card"><div class="stat-top"><span>Resolved</span><span class="stat-icon green">✓</span></div><strong id="resolvedCount">0</strong><small>Marked resolved in demo</small><div class="stat-line green-line"><i style="width:62%"></i></div></article>
+        <article class="stat-card stat-message"><span class="stat-icon">✦</span><h3>Good cities grow<br>through good ideas.</h3><a href="#report">Share yours <span>→</span></a></article>
+      </div>
+    </section>
+
+    <section class="section split-section" id="report">
+      <div class="report-intro"><div class="eyebrow">Make your voice count</div><h2>Notice something?<br><span>Let us know.</span></h2><p>Share the location and a few details. You’ll receive a tracking ID to find this report again.</p><div class="report-points"><div><span>✓</span> Takes about a minute</div><div><span>✓</span> No account needed</div><div><span>✓</span> Saved in the project database</div></div><div class="demo-callout"><b>Demo notice</b><br>This form does not contact a city office or government department.</div></div>
+      <form class="form-card" id="reportForm">
+        <div class="form-heading"><span class="form-step">01</span><div><h3>Report a local issue</h3><p>Fields marked with * are required.</p></div></div>
+        <label for="category">Issue category <span>*</span></label><select id="category" name="category" required><option value="">Choose a category</option><option>Garbage</option><option>Roads</option><option>Water</option><option>Streetlights</option><option>Other</option></select>
+        <label for="location">Location <span>*</span></label><input id="location" name="location" required maxlength="120" placeholder="Street, landmark or neighborhood">
+        <label for="description">What happened? <span>*</span></label><textarea id="description" name="description" rows="4" maxlength="600" required placeholder="Describe the issue and when you noticed it"></textarea>
+        <div class="form-bottom"><small>Do not include personal or sensitive information.</small><button class="button button-dark" type="submit">Submit demo report <span>→</span></button></div>
+        <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <section class="section tracking-section" id="tracking">
+      <div class="tracking-copy"><div class="eyebrow">Stay in the loop</div><h2>Track a report</h2><p>Enter the Civic Pulse ID shown after submitting a report.</p></div>
+      <form class="tracking-form" id="trackingForm"><label class="sr-only" for="trackId">Complaint ID</label><input id="trackId" placeholder="e.g. CP-20261122-3F0A9B2C4D7E8F103F0A9B2C4D7E8F10" autocomplete="off" required><button class="button button-green" type="submit">Find report <span>→</span></button><div class="track-result" id="trackResult" role="status" aria-live="polite"></div></form>
+    </section>
+
+    <section class="section info-section" id="updates">
+      <div class="section-heading"><div><div class="eyebrow">Stay informed</div><h2>Public information</h2><p>Sample notices for the demo. They are not live city advisories.</p></div><span class="demo-tag"><i></i> SAMPLE CONTENT</span></div>
+      <div class="updates-grid">
+        <article class="update-card featured-update"><div class="update-type">COMMUNITY NOTICE <span>DEMO</span></div><h3>Keep neighborhood walkways clear</h3><p>A sample reminder to keep sidewalks and access routes free from bulky items and waste.</p><div class="update-meta"><span>Example notice</span><span aria-hidden="true">↗</span></div></article>
+        <article class="update-card"><div class="update-type blue-type">CIVIC UPDATE <span>DEMO</span></div><h3>Community clean-up day</h3><p>Use this space for a locally verified event, with its date and organizer.</p><div class="update-meta"><span>Example update</span><span aria-hidden="true">↗</span></div></article>
+        <article class="update-card"><div class="update-type gold-type">PUBLIC SERVICE <span>DEMO</span></div><h3>Where to find official notices</h3><p>Always confirm urgent announcements with your municipal body or official channels.</p><div class="update-meta"><a href="https://www.india.gov.in/" target="_blank" rel="noopener noreferrer">India.gov.in</a><span aria-hidden="true">↗</span></div></article>
+      </div>
+    </section>
+
+    <section class="scheme-band" id="schemes"><div class="scheme-copy"><div class="eyebrow">Explore support</div><h2>Looking for a government scheme?</h2><p>Eligibility and benefits vary by scheme and location. Use the official directory to search and confirm the latest details.</p></div><div class="scheme-action"><span class="official-pill">OFFICIAL GOVERNMENT DIRECTORY</span><a class="button button-white" href="https://www.myscheme.gov.in/" target="_blank" rel="noopener noreferrer">Explore MyScheme <span>↗</span></a><small>Opens myscheme.gov.in</small></div></section>
+
+    <section class="section assistant-section" id="assistant">
+      <div class="assistant-copy"><div class="eyebrow">A careful civic guide</div><h2>Ask Civic Pulse</h2><p>Get help finding official sources. This demo assistant uses a small set of prepared answers and cannot check your eligibility or provide live city updates.</p><div class="assistant-source"><span>◎</span> Replies point you to official sources</div></div>
+      <div class="chat-card"><div class="chat-head"><div class="bot-avatar">✦</div><div><b>Civic Pulse assistant</b><small><i></i> Demo guide</small></div><span class="chat-menu">•••</span></div><div class="chat-messages" id="chatMessages" aria-live="polite"><div class="chat-bubble bot-bubble">Hi! I can point you to official places to check scheme information, government services or where to raise a civic complaint. What would you like help finding?</div></div><div class="quick-questions"><button type="button" data-question="Where can I find government schemes?">Find schemes</button><button type="button" data-question="How do I contact the government?">Contact channels</button></div><form class="chat-input" id="chatForm"><label class="sr-only" for="chatInput">Ask a civic question</label><input id="chatInput" maxlength="240" placeholder="Ask a civic question..."><button type="submit" aria-label="Send message">↑</button></form><div class="chat-disclaimer">Prepared demo answers · Always confirm details with official sources</div></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-main"><a class="brand footer-brand" href="#home"><span class="brand-mark" aria-hidden="true">⌂</span><span>Civic<span class="brand-light">Pulse</span><small>YOUR VOICE, YOUR CITY</small></span></a><p>Making civic information easier to find<br>and local participation easier to start.</p><div class="footer-links"><a href="#updates">Public information</a><a href="#schemes">Government schemes</a><a href="#report">Report an issue</a></div></div><div class="footer-bottom"><span>© 2026 Civic Pulse · Hackathon demo</span><span>Not affiliated with or connected to a government department.</span></div></footer>
+</body>
+</html>
